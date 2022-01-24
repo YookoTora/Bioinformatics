@@ -15,3 +15,5 @@ seqtk sample -s$SEED oilMP_S4_L001_R2_001.fastq 1500000 > matep2.fastq
 
 mkdir fastqc
 ls sub* matep* | xargs -tI{} fastqc -o fastqc {}
+
+

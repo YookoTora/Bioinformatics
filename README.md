@@ -64,10 +64,10 @@ rm sub*.trimmed matep*.int_trimmed
 
 ## Отчёты multiQC
 #### Для исходных чтений
-![](https://github.com/YookoTora/hse21_hw1/blob/main/images/main1.png)
-![](https://github.com/YookoTora/hse21_hw1/blob/main/images/main2.png)
+![](https://github.com/YookoTora/hse21_hw1/blob/main/main1.png)
+![](https://github.com/YookoTora/hse21_hw1/blob/main/main2.png)
 
 #### Для подрезанных чтений
-![](https://github.com/YookoTora/hse21_hw1/blob/main/images/trimmed1.png)
-![](https://github.com/YookoTora/hse21_hw1/blob/main/images/trimmed2.png)
+![](https://github.com/YookoTora/hse21_hw1/blob/main/trimmed1.png)
+![](https://github.com/YookoTora/hse21_hw1/blob/main/trimmed2.png)
 

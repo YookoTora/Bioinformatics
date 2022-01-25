@@ -61,3 +61,13 @@ time platanus gap_close -o Poil -c Poil_scaffold.fa -IP1 sub1.fastq.trimmed sub2
 ```bash
 rm sub*.trimmed matep*.int_trimmed
 ```
+
+## Отчёты multiQC
+#### Для исходных чтений
+![](https://github.com/YookoTora/hse21_hw1/blob/main/images/main1.png)
+![](https://github.com/YookoTora/hse21_hw1/blob/main/images/main2.png)
+
+#### Для подрезанных чтений
+![](https://github.com/YookoTora/hse21_hw1/blob/main/images/trimmed1.png)
+![](https://github.com/YookoTora/hse21_hw1/blob/main/images/trimmed2.png)
+

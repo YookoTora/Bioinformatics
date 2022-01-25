@@ -71,3 +71,99 @@ rm sub*.trimmed matep*.int_trimmed
 ![](https://github.com/YookoTora/hse21_hw1/blob/main/trimmed1.png)
 ![](https://github.com/YookoTora/hse21_hw1/blob/main/trimmed2.png)
 
+## Jupiter Notebook
+
+#### 1. Импорт библиотек
+```bash
+import re
+```
+
+#### 2. Функция для получения данных
+```bash
+def get_info(f, text, output = True):
+    lengths = []
+    total_len = 0
+    num = 0
+    max_len = 0
+    length = 0
+    score = 0
+    max_sequence = ''
+    curr_sequence = ''
+    for line in f:
+        if (line[0] == '>'):
+            if num != 0:
+                lengths.append(length)
+            num += 1
+            if length >= max_len:
+                max_len = length
+                max_sequence = curr_sequence
+            curr_sequence = ''
+            length = 0
+        else:
+            curr_sequence += line.strip()
+            length += len(line.strip())
+            total_len += len(line.strip())
+     
+    lengths.sort(reverse = True) 
+    for i in lengths:
+        score += i
+        if score >= total_len / 2:
+            if output == True:
+                print(f'Анализ {text}\n\
+Общее количество: {num},\n\
+Общая длина: {total_len},\n\
+Длина самого длинного: {max_len},\n\
+N50: {i}\n')
+            break
+    return max_sequence
+```
+
+#### 3. Контиги
+```bash
+max_cont = get_info(open('Poil_contig.fa', 'r'), 'Контигов')
+```
+
+Анализ Контигов
+Общее количество: 620,
+Общая длина: 3925993,
+Длина самого длинного: 179304,
+N50: 53942
+
+#### 4. Скаффолды
+```bash
+max_scaf = get_info(open('Poil_scaffold.fa', 'r'), 'Скаффолдов')
+```
+
+Анализ Скаффолдов
+Общее количество: 74,
+Общая длина: 3872350,
+Длина самого длинного: 3831701,
+N50: 3831701
+
+
+#### 5. Подсчет гэпов для необрезанных чтений
+```bash
+print(f'Общая длина гэпов: {max_scaf.count("N")}')
+max_scaf = re.sub(r'N{2,}', 'N', max_scaf)
+print(f'Число гэпов: {max_scaf.count("N")}')
+```
+
+Общая длина гэпов: 6182
+Число гэпов: 62
+
+
+#### 6.
+```bash
+max_scaf = get_info(open('Poil_gapClosed.fa', 'r'), 'Скаффолдов', False)
+```
+
+
+#### 7. Подсчет гэпов для обрезанных чтений
+```bash
+print(f'Общая длина гэпов для обрезанных чтений: {max_scaf.count("N")}')
+max_scaf = re.sub(r'N{2,}', 'N', max_scaf)
+print(f'Число гэпов для обрезанных чтений: {max_scaf.count("N")}')
+```
+
+Общая длина гэпов для обрезанных чтений: 1378
+Число гэпов для обрезанных чтений: 7
